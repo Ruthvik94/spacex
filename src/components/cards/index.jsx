@@ -39,7 +39,12 @@ const CardComp = () => {
           i
         ) => (
           <Card key={i}>
-            <Card.Img variant="top" src={links.mission_patch_small} />
+            <Card.Img
+              width="100"
+              height="300"
+              variant="top"
+              src={links.mission_patch_small}
+            />
             <Card.Body>
               <Card.Title
                 aria-label={`label for ${mission_name}`}
