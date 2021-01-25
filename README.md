@@ -4,10 +4,9 @@ A working demo of this app can be found at [Heroku Spacex](https://spacex94.hero
 
 ## modules used
 
-Redux for state management
-React-router-dom for url parameters
-
-express for server side rendering
+Redux for state management.
+React-router-dom for url parameters.
+express for server side rendering.
 
 ## css
 
