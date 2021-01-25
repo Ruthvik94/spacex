@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <div className="App-body">
-        <h1>SpaceX Launch Programs</h1>
+        <h1 aria-label="app title">SpaceX Launch Programs</h1>
         <div className="app-grid">
           <Switch>
             <Route exact path="/">
@@ -29,7 +29,10 @@ function App() {
         </div>
       </div>
       <footer className="fixed-bottom alert-secondary p-1 m2">
-        <h5 className="text-center text-info">
+        <h5
+          aria-label="developed by Ruthvik Kumar"
+          className="text-center text-info"
+        >
           Developed by: <span>Ruthvik Kumar</span>
         </h5>
       </footer>

@@ -31,10 +31,13 @@ const Filters = () => {
   }, [year, launch, land, dispatch]);
 
   return (
-    <section className="filter-wide">
+    <section className="filter-wide" aria-label="Filter section">
       <Card className="sticky-top">
         <Card.Body>
-          <Card.Header className="text-center font-weight-bold mb-2">
+          <Card.Header
+            className="text-center font-weight-bold mb-2"
+            aria-label="filters"
+          >
             Filters
           </Card.Header>
           <Year update={setYear} year={year} launch={launch} land={land} />

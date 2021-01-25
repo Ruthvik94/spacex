@@ -6,11 +6,14 @@ import "../index.css";
 const Landing = ({ update, land: selected, year, launch }) => {
   return (
     <>
-      <p className="text-center faded-line">Successful Landing</p>
+      <p className="text-center faded-line" aria-label="Successful Landing">
+        Successful Landing
+      </p>
       <div className="filter-grid">
         {["True", "False"].map((bool, i) => {
           return (
             <Link
+              aria-label={`landing ${bool}`}
               className={
                 bool === selected
                   ? "btn btn-sm btn-outline-info active"

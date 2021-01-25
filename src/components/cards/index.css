@@ -8,3 +8,13 @@
 .card-wide {
   grid-column: span 1 / auto;
 }
+
+.card-title {
+  color: "#7b7be6";
+  font-weight: "bold";
+}
+
+.card-info {
+  color: "#a39fea";
+  font-weight: "lighter";
+}

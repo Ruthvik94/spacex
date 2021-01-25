@@ -13,11 +13,14 @@ const Year = ({ update, year: selected, launch, land }) => {
 
   return (
     <>
-      <p className="text-center faded-line">Launch Year</p>
+      <p className="text-center faded-line" aria-label="launch year">
+        Launch Year
+      </p>
       <div className="filter-grid">
         {generateYears().map((year, i) => {
           return (
             <Link
+              aria-label={`year ${year}`}
               className={
                 year.toString() === selected.toString()
                   ? "btn btn-sm btn-outline-info active"

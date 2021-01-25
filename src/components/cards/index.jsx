@@ -42,7 +42,8 @@ const CardComp = () => {
             <Card.Img variant="top" src={links.mission_patch_small} />
             <Card.Body>
               <Card.Title
-                style={{ color: "#7b7be6", fontWeight: "bold" }}
+                aria-label={`label for ${mission_name}`}
+                className="card-title"
               >{`${mission_name} #${flight_number}`}</Card.Title>
               {mission_id.length > 0 && (
                 <>
@@ -54,21 +55,26 @@ const CardComp = () => {
                   </ul>
                 </>
               )}
-              <h6 className="font-weight-bold">
+              <h6
+                className="font-weight-bold"
+                aria-label={`year ${launch_year}`}
+              >
                 Launch Year:
-                <span style={{ color: "#a39fea", fontWeight: "lighter" }}>
-                  {launch_year}
-                </span>
+                <span className="card-info">{launch_year}</span>
               </h6>
-              <h6 className="font-weight-bold">
+              <h6
+                className="font-weight-bold"
+                aria-label={`successful launch ${launch_success}`}
+              >
                 Successful Launch:
-                <span style={{ color: "#a39fea", fontWeight: "lighter" }}>
-                  {launch_success.toString()}
-                </span>
+                <span className="card-info">{launch_success.toString()}</span>
               </h6>
-              <h6 className="font-weight-bold">
+              <h6
+                className="font-weight-bold"
+                aria-label={`successful landing ${launch_landing}`}
+              >
                 Successful Landing:
-                <span style={{ color: "#a39fea", fontWeight: "lighter" }}>
+                <span className="card-info">
                   {launch_landing ? launch_landing.toString() : "false"}
                 </span>
               </h6>
@@ -86,7 +92,9 @@ const CardComp = () => {
       {status === "loading" && (
         <div className="d-flex justify-content-center">
           <Spinner animation="border" role="status">
-            <span className="sr-only">Loading...</span>
+            <span aria-label="loading" className="sr-only">
+              Loading...
+            </span>
           </Spinner>
         </div>
       )}
