@@ -1,20 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<<<<<<< HEAD
 A working demo of this app can be found at [Heroku Spacex](https://spacex94.herokuapp.com/).
 
 ## modules used
 
-=======
-## modules used
->>>>>>> 5ee3e46a7f1a08eb3ce99f484277726a774b7457
 Redux for state management
 React-router-dom for url parameters
 
 express for server side rendering
 
 ## css
-<<<<<<< HEAD
 
 css grid to position the items
 media query to adapt to different screen sizes
@@ -36,22 +31,13 @@ bootstrap to style
 
 [Light House Score for desktop](/public/Lighthouse_desktop.PNG?raw=true "Light House Desktop").
 [Light House Score for mobile](/public/Lighthouse_mobile.PNG?raw=true "Light House Mobile").
-=======
-css grid to position the items
-media query to adapt to different screen sizes
-react-bootstrap for card
-bootstrap for style classes
->>>>>>> 5ee3e46a7f1a08eb3ce99f484277726a774b7457
 
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### 'npm run start'
-<<<<<<< HEAD
 
-=======
->>>>>>> 5ee3e46a7f1a08eb3ce99f484277726a774b7457
 serves the project hosted on a node server
 
 ### `npm run dev`
