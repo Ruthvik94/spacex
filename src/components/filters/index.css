@@ -1,0 +1,14 @@
+.faded-line {
+  border-bottom: 2px solid #d6cece;
+}
+
+.filter-wide {
+  grid-column: 1 / 2;
+}
+
+.filter-grid {
+  display: grid;
+  gap: 1rem;
+
+  grid-template-columns: 1fr 1fr;
+}
