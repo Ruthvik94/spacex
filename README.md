@@ -11,12 +11,12 @@ express for server side rendering
 
 ## css
 
-css grid to position the items
-media query to adapt to different screen sizes
-react-bootstrap for card
-bootstrap to style
+css grid to position the items.
+media query to adapt to different screen sizes.
+react-bootstrap for card.
+bootstrap to style.
 
-## approch used
+## Approch used
 
 1.  Functional components with component composition.
 2.  useEffect hook to control rendering of children.
