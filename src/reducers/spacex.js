@@ -47,6 +47,12 @@ const dataSlice = createSlice({
       state.error = action.error;
     },
   },
+  reducers: {
+    updateStatus: (state, action) => {
+      state.status = action.payload;
+    },
+  },
 });
 
+export const { updateStatus } = dataSlice.actions;
 export default dataSlice.reducer;

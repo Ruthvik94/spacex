@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "../index.css";
 
-const Year = ({ update, year: selected, launch, land }) => {
+const Year = ({ update, year: selected, launch, land, url }) => {
   const generateYears = () => {
     return [...Array(15)].reduce((curr, _, i) => {
       curr.push(2006 + i);
@@ -14,7 +14,16 @@ const Year = ({ update, year: selected, launch, land }) => {
   return (
     <>
       <p className="text-center faded-line" aria-label="launch year">
-        Launch Year
+        Launch Year{" "}
+        <span className="float-right">
+          <i
+            onClick={() => {
+              update("");
+              url("", launch, land);
+            }}
+            className="fa fa-undo"
+          ></i>
+        </span>
       </p>
       <div className="filter-grid">
         {generateYears().map((year, i) => {

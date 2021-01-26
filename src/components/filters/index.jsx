@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
-import { fetchDataWithParam } from "../../reducers/spacex";
+import { useParams, useHistory } from "react-router-dom";
+import { fetchDataWithParam, updateStatus } from "../../reducers/spacex";
 
 import Landing from "./landing";
 import Launch from "./launch";
@@ -12,6 +12,7 @@ import "./index.css";
 
 const Filters = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { year: yr, land: ld, launch: ln } = useParams();
 
   const [year, setYear] = useState(yr ? yr : "");
@@ -30,6 +31,16 @@ const Filters = () => {
     }
   }, [year, launch, land, dispatch]);
 
+  const constructUrl = (yr, ld, ln) => {
+    if (!yr && !ld && !ln) {
+      history.push("/");
+      history.replace("/");
+      dispatch(updateStatus("idle"));
+    } else {
+      history.push(`/${yr}/${ld}/${ln}`);
+    }
+  };
+
   return (
     <section className="filter-wide" aria-label="Filter section">
       <Card className="sticky-top">
@@ -40,11 +51,29 @@ const Filters = () => {
           >
             Filters
           </Card.Header>
-          <Year update={setYear} year={year} launch={launch} land={land} />
+          <Year
+            update={setYear}
+            year={year}
+            launch={launch}
+            land={land}
+            url={constructUrl}
+          />
           <br />
-          <Launch update={setLaunch} year={year} launch={launch} land={land} />
+          <Launch
+            update={setLaunch}
+            year={year}
+            launch={launch}
+            land={land}
+            url={constructUrl}
+          />
           <br />
-          <Landing update={setLand} year={year} launch={launch} land={land} />
+          <Landing
+            update={setLand}
+            year={year}
+            launch={launch}
+            land={land}
+            url={constructUrl}
+          />
         </Card.Body>
       </Card>
     </section>

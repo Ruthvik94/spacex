@@ -14,7 +14,7 @@ const CardComp = () => {
   const { status, error } = useSelector((state) => state.spacex);
 
   useEffect(() => {
-    if (status === "idle" && (!year || !launch || !land)) {
+    if (status === "idle" && !year && !launch && !land) {
       dispatch(fetchData());
     }
   }, [dispatch, status, land, year, launch]);
@@ -38,8 +38,13 @@ const CardComp = () => {
           },
           i
         ) => (
-          <Card key={i}>
+          <Card
+            className="p-4"
+            key={i}
+            style={data.length === 1 ? { width: "22rem" } : { width: "auto" }}
+          >
             <Card.Img
+              style={{ background: "#f1f1f1" }}
               width="100"
               height="300"
               variant="top"
@@ -80,7 +85,7 @@ const CardComp = () => {
               >
                 Successful Landing:
                 <span className="card-info">
-                  {launch_landing ? launch_landing.toString() : "false"}
+                  {launch_landing ? launch_landing.toString() : ""}
                 </span>
               </h6>
             </Card.Body>
