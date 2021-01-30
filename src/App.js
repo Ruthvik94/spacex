@@ -1,6 +1,5 @@
 import "./App.css";
-import Cards from "./components/cards";
-import Filters from "./components/filters";
+import Composed from "./components";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -13,18 +12,7 @@ function App() {
         <h1 aria-label="app title">SpaceX Launch Programs</h1>
         <div className="app-grid">
           <Switch>
-            <Route exact path="/">
-              <>
-                <Filters />
-                <Cards />
-              </>
-            </Route>
-            <Route path="/:year?/:launch?/:land?">
-              <>
-                <Filters />
-                <Cards />
-              </>
-            </Route>
+            <Route path="/" component={Composed} />
           </Switch>
         </div>
       </div>

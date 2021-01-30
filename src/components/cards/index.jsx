@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { parse } from "query-string";
 import { fetchData } from "../../reducers/spacex";
 
 import Card from "react-bootstrap/Card";
@@ -10,16 +11,24 @@ import "./index.css";
 
 const CardComp = () => {
   const dispatch = useDispatch();
-  const { year, launch, land } = useParams();
+  const { search } = useLocation();
+  const { launch_year, launch_success, land_success } = parse(search, {
+    parseBooleans: true,
+  });
+
   const { status, error } = useSelector((state) => state.spacex);
 
   useEffect(() => {
-    if (status === "idle" && !year && !launch && !land) {
+    if (status === "idle" && !launch_year && !launch_success && !land_success) {
       dispatch(fetchData());
     }
-  }, [dispatch, status, land, year, launch]);
+  }, [dispatch, status, land_success, launch_year, launch_success]);
 
   const { data } = useSelector((state) => state.spacex);
+
+  if (error) {
+    console.log(error.stack);
+  }
 
   const mapData = () => {
     if (!data.length) {
@@ -77,7 +86,9 @@ const CardComp = () => {
                 aria-label={`successful launch ${launch_success}`}
               >
                 Successful Launch:
-                <span className="card-info">{launch_success.toString()}</span>
+                <span className="card-info">
+                  {launch_success ? launch_success.toString() : ""}
+                </span>
               </h6>
               <h6
                 className="font-weight-bold"
@@ -108,7 +119,7 @@ const CardComp = () => {
           </Spinner>
         </div>
       )}
-      {status === "error" && <div>{error}</div>}
+      {status === "error" && <h3 className="text-center">{error.message}</h3>}
       {status === "succeeded" && <div className="card-grid">{mapData()}</div>}
     </aside>
   );

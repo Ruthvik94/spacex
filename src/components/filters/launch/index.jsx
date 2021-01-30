@@ -3,23 +3,23 @@ import { Link } from "react-router-dom";
 
 import "../index.css";
 
-const Launch = ({ update, launch: selected, land, year, url }) => {
+const Launch = ({ update, launch: selected, url, query }) => {
   return (
     <>
       <p className="text-center faded-line" aria-label="Succesful launch">
-        Successful Launch{" "}
+        Successful Launch
         <span className="float-right">
           <i
             onClick={() => {
               update("");
-              url(year, "", land);
+              url({ launch_success: "" });
             }}
             className="fa fa-undo"
           ></i>
         </span>
       </p>
       <div className="filter-grid">
-        {["True", "False"].map((bool, i) => {
+        {["true", "false"].map((bool, i) => {
           return (
             <Link
               aria-label={`launch  ${bool}`}
@@ -30,7 +30,11 @@ const Launch = ({ update, launch: selected, land, year, url }) => {
               }
               key={i}
               onClick={() => update(bool)}
-              to={`/${year}/${bool}/${land}`}
+              to={(location) => ({
+                ...location,
+                pathname: "/",
+                search: "?" + query({ launch_success: bool }),
+              })}
             >
               {bool}
             </Link>
