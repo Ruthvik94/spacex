@@ -54,8 +54,8 @@ const CardComp = () => {
           >
             <Card.Img
               style={{ background: "#f1f1f1" }}
-              width="100"
-              height="300"
+              width="256"
+              height="256"
               variant="top"
               src={links.mission_patch_small}
             />
